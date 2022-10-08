@@ -1,4 +1,4 @@
-# portfoliio
+# portfolio
 
 This website is still work in progress, and will be having more features soon !! 
 
