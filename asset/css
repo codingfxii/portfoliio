@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 
@@ -33,7 +32,7 @@ body{
 
 body.dark {
 	background: #c5c5c5;
-  transition: all 0.40s ease;
+  
 }
 
 body.dark .home-text span{
@@ -260,6 +259,13 @@ section{
   justify-content: flex-start;
 }
 
+.home{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: ease-in-out 1s;
+}
+
 .home-text h1{
   margin: 20px 0;
   font-size: var(--h1-font);
@@ -311,6 +317,19 @@ header.sticky{
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem;
+}
+
+.about{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: ease-in-out 1s;
+}
+
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
 .about-text h4{
@@ -369,9 +388,10 @@ header.sticky{
   background: #12141c;
   border-top: 5px solid transparent;
   border-radius: 0.5rem;
-  transition: all .40s ease;
+  transition: all .20s ease;
   cursor: pointer;
 }
+
 .box h3{
   font-size: 24px;
   font-weight: 600;
@@ -406,9 +426,9 @@ header.sticky{
 }
 .row{
   padding: 25px;
-  background: #12141c;
+  background: #000;
   border-radius: 0.5rem;
-  transition: all .40s ease;
+  
 }
 .main-row{
   display: flex;
@@ -449,7 +469,7 @@ header.sticky{
   font-size: var(--h2-font);
 }
 .contact-text p{
-  color: var(--second-color);
+  color: white;
   font-size: var(--p-font);
   line-height: 30px;
   margin-bottom: 2rem;
@@ -641,5 +661,112 @@ color: var(--main-color);
     --h1-font: 3.7rem;
     --h2-font: 2.7rem;
   }
+  
 
 }
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: white;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:3vh;
+  text-align:center;
+  background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
