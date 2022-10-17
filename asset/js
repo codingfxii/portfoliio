@@ -1,3 +1,19 @@
+const oberserver = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		console.log(entry)
+		if (entry.isIntersecting) {
+			entry.target.classList.add('show');
+		} else {
+			entry.target.classList.remove('show');
+		}
+	});
+});
+
+const hiddenElements = document.querySelectorAll('.about , .home , .contact');
+hiddenElements.forEach((el) => oberserver.observe(el));
+
+
+
 const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
@@ -10,6 +26,7 @@ const header = document.querySelector("header");
 window.addEventListener ("scroll", function() {
 	header.classList.toggle ("sticky", window.scrollY >0);
 });
+
 
 let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -30,7 +47,9 @@ const sr = ScrollReveal ({
 	reset: true
 })
 
+
 sr.reveal('.home-text',{delay:190, origin:'bottom'})
 
 sr.reveal('.about,.services,.portfolio,.contact',{delay:200, origin:'bottom'})
+
 
